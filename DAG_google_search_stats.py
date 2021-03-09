@@ -11,7 +11,7 @@ from airflow.operators.python_operator import PythonOperator
 dag = DAG(
     dag_id = "google_search",
     start_date = datetime(2021, 2, 18),
-    schedule_interval = None,
+    schedule_interval = None,           #change as required
 )
 
 fetch_searches = BashOperator(
@@ -19,7 +19,7 @@ fetch_searches = BashOperator(
     bash_command = "curl -o /home/ddyakov/airflow/google_searches/searches.json --request GET\
          --url 'https://google-search3.p.rapidapi.com/api/v1/search/q=bitcoin+bubble&num=10'\
          --header 'x-rapidapi-host: google-search3.p.rapidapi.com'\
-         --header 'x-rapidapi-key: xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx'",
+         --header 'x-rapidapi-key: xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx'",    #see if credentials can be kept externally
     dag=dag,
 )
 
