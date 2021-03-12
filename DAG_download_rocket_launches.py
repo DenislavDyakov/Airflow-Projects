@@ -11,7 +11,7 @@ from airflow.operators.python import PythonOperator
 dag = DAG(
     dag_id = "download_rocket_launches",
     start_date=airflow.utils.dates.days_ago(30),
-    schedule_interval=None
+    schedule_interval=None                          #change based on project specifics
 )
 
 download_launches = BashOperator(
